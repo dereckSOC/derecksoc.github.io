@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router()
 const server = require('http').createServer(app);
 const { MongoClient, ServerApiVersion } = require('mongodb');
-//const uri = "mongodb+srv://2400567:9TsgYcaMcjuf2HcU@compnetworktest.mjh9b.mongodb.net/?retryWrites=true&w=majority&appName=compnetworktest";
+const uri = DATABASE_KEY;
 app.set('view engine', 'ejs');
 
 let db
