@@ -3,7 +3,8 @@ const app = express();
 const router = express.Router()
 const server = require('http').createServer(app);
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.DATABASE_KEY;
+//const uri = process.env.DATABASE_KEY
+const uri = "mongodb+srv://2400567:9TsgYcaMcjuf2HcU@compnetworktest.mjh9b.mongodb.net/?retryWrites=true&w=majority&appName=compnetworktest";
 app.set('view engine', 'ejs');
 
 let db
@@ -50,7 +51,7 @@ app.post('/data', (req, res) => {
     var randomString = generateRandomString(10)
     try {
         const result = db.collection('data').insertOne({ _id: randomString, data: data, date: currentDate});
-        res.status(201).json({ message: 'data inserted successfully' })
+        //res.status(201).json({ message: 'data inserted successfully' })
     } catch (err) {
         console.log('try catch error: ',err.message);s
     }
