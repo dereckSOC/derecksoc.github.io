@@ -9,17 +9,12 @@ app.set('view engine', 'ejs');
 
 let db
 
-// router.get('/', (req, res) => {
-//     res.render("index.ejs");
-// });
-
 server.listen(3000, function() { 
 	console.log('Server Has Started!'); 
 });
 
 app.use('/', router);
 
-// make some random id thing
 function generateRandomString(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -32,7 +27,6 @@ function generateRandomString(length) {
     return result;
 }
 
-//get data from mongodb
 app.get('/', async (req, res) => {
     try {
         const result = await db.collection('data').find().toArray();
@@ -44,14 +38,13 @@ app.get('/', async (req, res) => {
     }
 })
 
-//post (insert) data into mongodb
 app.post('/data', (req, res) => {
     const currentDate = new Date().getTime();
     var data = "enabled"
     var randomString = generateRandomString(10)
     try {
         const result = db.collection('data').insertOne({ _id: randomString, data: data, date: currentDate});
-        //res.status(201).json({ message: 'data inserted successfully' })
+        res.render('index.ejs');
     } catch (err) {
         console.log('try catch error: ',err.message);s
     }

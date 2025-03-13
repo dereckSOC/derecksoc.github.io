@@ -40,14 +40,6 @@
                             <form action="/data" method="POST">
                                 <button type="submit">spin motor</button>
                             </form>
-    
-                            <ul>
-                                <% result.forEach(item => { 
-                                    var currentTimestamp = new Date().getTime();
-                                    var threeSecondsInMillis = 3 * 60 * 1000;
-                                    if (threeSecondsInMillis > (currentTimestamp - item.date)) {  %> <li><%= item.data %> - <%= item.date     %></li> <% } %>
-                                <% }) %>
-                            </ul>
                         </div>
                     </div>
                     
