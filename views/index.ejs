@@ -32,22 +32,27 @@
                     <a style="color:#212529; font-size: 20px;"><b style="border-bottom: 2px black solid;">Dashboard</b></a>
                 </div>
             </div>
-            <!-- <div class="container col-md-12">
+            <div class="container col-md-12">
                 <div class="row col-md-12 col-md-offset-2">
                     <div class="col-md-6" >
                         <div class="col-ml-12" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                             <h2>Insert Plant Thing</h2>
+                            <ul>
+                                <% result.forEach(item => { 
+                                    var currentTimestamp = new Date().getTime();
+                                    var threeSecondsInMillis = 3 * 60 * 1000;
+                                    if (threeSecondsInMillis > (currentTimestamp - item.date)) {  %> <li><%= item.data %> - <%= item.date     %></li> <% } %>
+                                <% }) %>
+                            </ul>
                         </div>
                     </div>
-
                     
                     <div class="col-md-6">
                         <div class="row" style="background-color: white; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;">
                             <h2>Insert Dashboard Thing</h2>
                         </div>
-                    </div>
-                </div>
-            </div> -->
+                    </div>                </div>
+            </div>
         </div>
         <footer class="jumbotron jumbotron-fluid bg-dark mt-auto" style="padding-top: 30px; padding-bottom: 40px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="container" style="color: white;">
